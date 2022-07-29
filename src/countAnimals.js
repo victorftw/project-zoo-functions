@@ -17,14 +17,14 @@ const allAnimals = {
 const countAnimals = (animals) => {
   if (typeof animals === 'undefined') return allAnimals;
   if (Object.keys(animals).includes('sex')) {
-    const animal = Object.values(animals)[0];
-    const sexo = Object.values(animals)[1];
+    const animal = animals.specie;
+    const sexo = animals.sex;
     const lista = especies.find((element) => element.name === animal);
     const listaFiltrada = lista.residents.filter((item) => item.sex === sexo).length;
     return listaFiltrada;
   }
   if (!Object.keys(animals).includes('sex')) {
-    const animal = Object.values(animals)[0];
+    const animal = animals.specie;
     const lista = especies.find((element) => element.name === animal);
     const listaAtt = lista.residents.length;
     return listaAtt;
